@@ -1,0 +1,921 @@
+/* Import Google Fonts for magazine style */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+/* Base Styles */
+:root {
+    --primary: #1a1a1a;
+    --secondary: #666666;
+    --background: #f5f5f5;
+    --text: #333333;
+    --accent: #0f766e;
+    --card-bg: #ffffff;
+    --card-border: #e5e5e5;
+    --hover-bg: rgba(15, 118, 110, 0.05);
+    --tag-bg: #f0f0f0;
+    --tag-text: #404040;
+    --section-bg: #fafafa;
+    --nav-bg: rgba(255, 255, 255, 0.98);
+}
+
+body {
+    font-family: 'Source Serif Pro', serif;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Magazine Grid Pattern */
+.magazine-grid {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Elegant Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #78716c;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #57534e;
+}
+
+/* Magazine-style Text Decorations */
+.heading-underline::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: #292524;
+    margin: 1rem auto;
+}
+
+.drop-cap::first-letter {
+    font-family: 'Playfair Display', serif;
+    float: left;
+    font-size: 4rem;
+    line-height: 1;
+    padding-right: 0.5rem;
+    color: #44403c;
+}
+
+/* Sophisticated Hover Effects */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Project Card Magazine Style */
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Project card content */
+.project-card h3 {
+    color: var(--accent);
+}
+
+.project-card p {
+    color: var(--text);
+}
+
+/* Project tags */
+.project-tag {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    border: 1px solid var(--card-border);
+}
+
+/* Elegant Link Underlines */
+.elegant-link {
+    position: relative;
+    text-decoration: none;
+}
+
+.elegant-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.elegant-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Magazine Section Borders */
+.section-border {
+    border-top: 2px solid #e7e5e4;
+    border-bottom: 2px solid #e7e5e4;
+}
+
+/* Subtle Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+}
+
+/* Magazine Grid Layout */
+.magazine-layout {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+}
+
+/* Pull Quotes */
+.pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: #44403c;
+    border-left: 3px solid #78716c;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* Decorative Elements */
+.decorative-line {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #78716c, transparent);
+}
+
+/* Skills Tags */
+.skill-tag {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    border: 1px solid var(--card-border);
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background-color: var(--hover-bg);
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+/* Section Headers */
+.section-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #e7e5e4;
+    z-index: -1;
+}
+
+.section-header h2 {
+    display: inline-block;
+    background-color: #fafaf9;
+    padding: 0 2rem;
+}
+
+/* Contact Button */
+.contact-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.contact-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    transition: all 0.5s ease;
+}
+
+.contact-button:hover::before {
+    left: 100%;
+}
+
+/* Mobile Menu Refinements */
+.mobile-menu {
+    backdrop-filter: blur(10px);
+}
+
+/* Print-style Image Captions */
+.image-caption {
+    font-family: 'Source Serif Pro', serif;
+    font-style: italic;
+    font-size: 0.875rem;
+    color: #78716c;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Text Selection */
+::selection {
+    background: #e7e5e4;
+    color: #292524;
+}
+
+/* Add magazine-style text effects */
+.text-gradient {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.name-highlight {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--accent);
+    position: relative;
+}
+
+.name-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.name-highlight:hover::after {
+    transform: scaleX(1);
+}
+
+/* Update the technical expertise section */
+.expertise-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+}
+
+.expertise-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Skill tag updates */
+.skill-tag {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background-color: var(--hover-bg);
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+/* Icon container styles */
+.icon-container {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--tag-bg);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.icon-container:hover {
+    background-color: var(--hover-bg);
+    transform: translateY(-2px);
+}
+
+/* Text colors */
+.text-primary {
+    color: var(--primary);
+}
+
+.text-secondary {
+    color: var(--secondary);
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+/* Add these new styles for better visual hierarchy */
+.section-title {
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+    color: var(--secondary);
+    font-family: 'Source Serif Pro', serif;
+}
+
+/* Refined hover effects */
+.hover-effect {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-effect:hover {
+    background-color: var(--hover-bg);
+}
+
+/* Skills grid refinements */
+.skills-grid {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+}
+
+.skill-category {
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    border-bottom: 2px solid var(--card-border);
+}
+
+/* Add these new styles for better visibility and animations */
+
+/* Interactive Background Animation */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.05;
+    background: 
+        linear-gradient(45deg, transparent 45%, #e7e5e4 45%, #e7e5e4 55%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, #e7e5e4 45%, #e7e5e4 55%, transparent 55%);
+    background-size: 30px 30px;
+    animation: backgroundMove 30s linear infinite;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 60px 60px;
+    }
+}
+
+/* Updated Project Card Styles */
+.project-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover::before {
+    transform: translateX(100%);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: #10b981;
+}
+
+/* Project Card Content */
+.project-card h3 {
+    color: #1f2937;
+}
+
+.project-card p {
+    color: #4b5563;
+}
+
+.project-card .tech-tag {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.project-card .tech-tag:hover {
+    background-color: #10b981;
+    color: white;
+}
+
+/* Updated Technical Expertise Section */
+.expertise-section {
+    background: linear-gradient(to right, #ffffff, #f8fafc, #ffffff);
+    position: relative;
+}
+
+.expertise-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #1f2937;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-item:hover {
+    background-color: #10b981;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.skill-item:hover i {
+    color: white !important;
+}
+
+/* Floating Animation for Skill Icons */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Interactive Particles Background */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.05;
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced Section Transitions */
+section {
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    transform: none;
+    transition: all 0.6s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Interactive Hover Effects */
+.hover-glow {
+    transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Update these styles to fix visibility */
+
+/* Fix background layers */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.05;
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.05;
+}
+
+/* Fix content visibility */
+section {
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    transform: none;
+}
+
+/* Update card backgrounds for better visibility */
+.project-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.expertise-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix skill items visibility */
+.skill-item {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #1f2937;
+}
+
+/* Ensure text is visible */
+.text-stone-800 {
+    color: #292524 !important;
+}
+
+.text-stone-600 {
+    color: #44403c !important;
+}
+
+/* Fix navigation visibility */
+nav {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Navigation updates */
+nav {
+    background-color: var(--nav-bg) !important;
+    border-bottom: 1px solid var(--card-border);
+}
+
+/* Hero section updates */
+#home {
+    background-color: var(--section-bg);
+}
+
+/* Project card updates */
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.project-card h3 {
+    color: var(--accent);
+}
+
+.project-card p {
+    color: var(--text);
+}
+
+/* Skills section updates */
+.expertise-section {
+    background-color: var(--section-bg);
+}
+
+.expertise-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+.skill-item {
+    background-color: var(--tag-bg);
+    color: var(--text);
+    border: 1px solid var(--card-border);
+}
+
+.skill-item:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* About section updates */
+#about {
+    background-color: var(--section-bg);
+}
+
+.about-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+/* Contact section updates */
+#contact {
+    background-color: var(--section-bg);
+}
+
+/* Footer updates */
+footer {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+/* Tag updates */
+.tech-tag {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+}
+
+/* Button updates */
+.primary-button {
+    background-color: var(--accent);
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #0c5853;  /* Darker shade of accent */
+}
+
+/* Section background alternation */
+section:nth-child(odd) {
+    background-color: var(--section-bg);
+}
+
+section:nth-child(even) {
+    background-color: var(--background);
+}
+
+/* Reduce harsh whites */
+.bg-white {
+    background-color: var(--card-bg) !important;
+}
+
+.text-white {
+    color: #f8f8f8 !important;
+}
+
+/* Update particles and background animations */
+.animated-background {
+    opacity: 0.03;
+}
+
+.particles {
+    opacity: 0.03;
+}
+
+/* Add subtle texture */
+.texture-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+/* Skill icons color update */
+.skill-item i {
+    color: var(--accent) !important;
+}
+
+.skill-item:hover i {
+    color: white !important;
+}
+
+/* Card hover effects update */
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(15, 118, 110, 0.1);
+}
+
+/* Text color updates */
+.text-stone-800 {
+    color: var(--primary) !important;
+}
+
+.text-stone-600 {
+    color: var(--text) !important;
+}
+
+.text-emerald-400 {
+    color: var(--accent) !important;
+}
+
+/* Section headers */
+.section-title {
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+/* Add these new styles for the crushed paper texture */
+.texture-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E"),
+        linear-gradient(to right bottom, 
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0.2) 100%);
+    filter: contrast(120%) brightness(120%);
+}
+
+/* Add paper fold effect */
+.paper-fold {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.02;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(0,0,0,0.1) 49%, transparent 51%),
+        linear-gradient(-45deg, transparent 48%, rgba(0,0,0,0.1) 49%, transparent 51%);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+/* Add vintage paper texture */
+.vintage-texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.02;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.3'/%3E%3C/svg%3E"),
+        linear-gradient(to right, rgba(0,0,0,0.01) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.01) 1px, transparent 1px);
+    background-size: 100% 100%, 20px 20px, 20px 20px;
+    pointer-events: none;
+}
+
+/* Add these mobile-specific fixes */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Mobile menu styles */
+#mobile-menu {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#mobile-menu.menu-open {
+    transform: translateX(0);
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+    /* Fix container padding */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Adjust card padding */
+    .project-card,
+    .expertise-card {
+        padding: 1rem;
+    }
+
+    /* Fix grid gaps */
+    .grid {
+        gap: 1rem;
+    }
+
+    /* Adjust text sizes */
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Fix button groups */
+    .flex.space-x-4 {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    /* Ensure buttons don't overflow */
+    .flex.space-x-4 > a {
+        flex: 1 1 auto;
+        min-width: 150px;
+        text-align: center;
+    }
+
+    /* Fix timeline layout */
+    .pl-8 {
+        padding-left: 2rem;
+    }
+
+    /* Adjust skill tags */
+    .skill-item {
+        flex: 1 1 auto;
+        min-width: 120px;
+    }
+}
+
+/* Fix horizontal scrolling issues */
+.overflow-hidden {
+    overflow-x: hidden !important;
+}
+
+/* Ensure content stays within viewport */
+section {
+    width: 100vw;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix mobile menu button */
+#mobile-menu-btn {
+    z-index: 60;
+    padding: 0.5rem;
+}
