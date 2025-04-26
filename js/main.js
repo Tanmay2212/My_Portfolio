@@ -17,10 +17,10 @@ const projects = [
         featured: true
     },
     {
-        title: "Color Detection System",
-        description: "Detect and identify colors in real-time using OpenCV.",
+        title: "multi_shop_sales_analysis",
+        description: "Multi-Shop managing and analysis",
         tech: ["Python", "OpenCV", "NumPy"],
-        github: "https://github.com/Tanmay2212/Color_Detection.git",
+        github: "https://github.com/Tanmay2212/multi_shop_sales_analysis.git",
         image: "https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         featured: true
     },
